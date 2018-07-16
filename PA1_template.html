@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title></title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>#Course Project- Week 2
+###Coursera- Reproducible Research 
+Meredith C Henderson</p>
+
+<p>###Preparation: Download the data and unzip the file contents.</p>
+
+<pre><code class="r">Filename&lt;-&quot;Activity.zip&quot;
+if(!file.exists(Filename)){
+    Url&lt;-&quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;
+    download.file(Url,Filename)
+}
+
+if(!file.exists(&quot;Activity_Data&quot;)){
+    unzip(Filename,exdir=&quot;Activity_Data&quot;)
+}
+</code></pre>
+
+<p>###Part 1: Load the data using read.csv(). Convert the &ldquo;date&rdquo; variable from factor to date format and the &ldquo;steps&rdquo; variable to numeric, I&#39;m using str() before and after to confirm the conversion.</p>
+
+<pre><code class="r">activity&lt;-read.csv(&quot;./Activity_Data/activity.csv&quot;)
+str(activity)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    17568 obs. of  3 variables:
+##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
+##  $ date    : Factor w/ 61 levels &quot;2012-10-01&quot;,&quot;2012-10-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
+</code></pre>
+
+<pre><code class="r">activity$date&lt;-as.Date(as.factor(activity$date))
+activity$steps&lt;-as.numeric(activity$steps)
+str(activity)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    17568 obs. of  3 variables:
+##  $ steps   : num  NA NA NA NA NA NA NA NA NA NA ...
+##  $ date    : Date, format: &quot;2012-10-01&quot; &quot;2012-10-01&quot; ...
+##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
+</code></pre>
+
+<p>###Part 2: Create a histogram that shows the total number of steps taken per day. The x-axis shows a number range that represents the total number of steps taken in a day. The y-axis shows how many days had totals that fell within that range.  </p>
+
+<pre><code class="r">plot1&lt;-with(activity,tapply(steps,list(date), FUN = sum))
+hist(plot1, col=&quot;cyan3&quot;,
+     xlab=&quot;Steps&quot;, main=&quot;Total Steps Taken Per Day&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk histogram" alt="plot of chunk histogram" style="display: block; margin: auto;" /></p>
+
+<p>###Part 3: Create a table showing the mean and median steps taken per day.  I&#39;m using the &ldquo;kableExtra&rdquo; package, which is similar to &ldquo;knitr&rdquo; but allows for more customization. </p>
+
+<pre><code class="r">library(data.table)
+DT&lt;-data.table(activity, key=&quot;date&quot;)
+DT2&lt;-DT[,c(&quot;Mean&quot;,&quot;Median&quot;):= list(mean(steps[steps!=0]), median(steps[steps!=0])), by=list(date)]
+DT2&lt;-DT[,list(Mean=mean(steps[steps!=0]), Median=median(steps[steps!=0])), by=list(date)]
+library(kableExtra)
+</code></pre>
+
+<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 3.5.1
+</code></pre>
+
+<pre><code class="r">kable(DT2, align = &quot;c&quot;) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;,&quot;hover&quot;,&quot;condensed&quot;), full_width = F) %&gt;%
+    column_spec(1, width = &quot;8em&quot;, border_left = T, border_right = T) %&gt;%
+    column_spec(2, width = &quot;12em&quot;, border_right = T) %&gt;%
+    column_spec(3, width= &quot;8em&quot;, border_right = T)
+</code></pre>
+
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> date </th>
+   <th style="text-align:center;"> Mean </th>
+   <th style="text-align:center;"> Median </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-01 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-02 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 63.00000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 63.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-03 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 140.14815 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 61.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-04 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 121.16000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 56.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-05 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 154.58140 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 66.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-06 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 145.47170 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 67.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-07 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 101.99074 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-08 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-09 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 134.85263 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 48.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-10 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 95.19231 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 56.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-11 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 137.38667 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 35.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-12 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 156.59459 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 46.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-13 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 119.48077 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 45.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-14 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 160.61702 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 60.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-15 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 131.67532 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 54.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-16 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 157.12500 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 64.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-17 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 152.86364 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 61.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-18 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 152.36364 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-19 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 127.19355 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 74.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-20 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 125.24096 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 49.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-21 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 96.93407 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 48.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-22 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 154.71264 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-23 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 101.34091 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 56.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-24 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 104.43750 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 51.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-25 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 56.63636 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 35.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-26 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 77.02273 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 36.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-27 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 134.92000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 72.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-28 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 110.17308 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 61.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-29 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 80.93548 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 54.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-30 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 110.32584 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 40.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-31 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 179.23256 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 83.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-01 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-02 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 143.24324 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 55.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-03 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 117.45556 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 59.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-04 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-05 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 141.06757 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 66.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-06 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 100.40964 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-07 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 135.61053 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 58.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-08 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 61.90385 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 42.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-09 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-10 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-11 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 132.71579 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 55.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-12 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 156.01449 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 42.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-13 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 90.56790 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 57.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-14 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-15 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 20.50000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 20.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-16 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 89.19672 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 43.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-17 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 183.83333 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 65.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-18 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 162.47312 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 80.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-19 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 117.88000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 34.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-20 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 95.14894 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 58.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-21 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 188.04412 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 55.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-22 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 177.62609 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 65.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-23 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 252.30952 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 113.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-24 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 176.56098 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 65.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-25 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 140.88095 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 84.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-26 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 128.29885 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 53.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-27 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 158.67442 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 57.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-28 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 212.14583 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 70.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-29 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 110.10938 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 44.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-30 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> NA </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> NA </td>
+  </tr>
+</tbody>
+</table>
+
+<p>###Part 4: Create a time series plot of the average steps taken per day. The NA values were not removed for this plot; the gaps in the line are expected.</p>
+
+<pre><code class="r">plot(DT2$Mean~as.Date(DT2$date), type=&quot;l&quot;, 
+     ylab= &quot;Average steps&quot;, xlab= &quot;Date&quot;, 
+     main= &quot;Time Series of Average Steps Taken Per Day&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-3"/></p>
+
+<p>###Part 5: Determine which interval has the most steps per day on average, the table generated by this code will show the top 10 in descending order. From the table output, we can see that interval 835 has the highest average steps per day.</p>
+
+<pre><code class="r">library(data.table)
+DT_Int&lt;-data.table(activity, key=&quot;interval&quot;, na.rm=T)
+DT3&lt;-DT_Int[,c(&quot;Mean&quot;,&quot;Median&quot;):= list(mean(steps[steps!=0], na.rm=T), median(steps[steps!=0], na.rm=T)), by=list(interval)]
+DT3&lt;-DT3[,list(Mean=mean(steps[steps!=0], na.rm=T), Median=median(steps[steps!=0], na.rm=T)), by=list(interval)]
+DT4&lt;-DT3[order(-Mean)]
+DT4&lt;-DT4[1:10,1:2]
+library(kableExtra)
+kable(DT4, align = &quot;c&quot;) %&gt;%
+    kable_styling(bootstrap_options = c(&quot;striped&quot;,&quot;hover&quot;,&quot;condensed&quot;), full_width = F) %&gt;%
+    column_spec(1, width= &quot;8em&quot;, border_left = T, border_right = T) %&gt;%
+    column_spec(2, width= &quot;10em&quot;, border_right = T)
+</code></pre>
+
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> interval </th>
+   <th style="text-align:center;"> Mean </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 835 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 352.4839 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 850 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 324.0000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 845 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 307.0000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 840 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 296.6857 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 815 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 287.8966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 855 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 285.5484 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 1540 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 274.6250 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 1550 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 270.6000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 550 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 261.3750 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 605 </td>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> 261.1000 </td>
+  </tr>
+</tbody>
+</table>
+
+<p>###Part 6: Impute missing (NA) values. We can see from the call to summary() that there are 2304 NA values.  The code below will search for NA values in the &ldquo;steps&rdquo; variable and replace with the average number of steps for the corresponding interval.  We can double check this by recreating the table from Part 4 and comparing the values. We can see in the table below that all NA values have been replaced.</p>
+
+<pre><code class="r">summary(activity)
+</code></pre>
+
+<pre><code>##      steps             date               interval     
+##  Min.   :  0.00   Min.   :2012-10-01   Min.   :   0.0  
+##  1st Qu.:  0.00   1st Qu.:2012-10-16   1st Qu.: 588.8  
+##  Median :  0.00   Median :2012-10-31   Median :1177.5  
+##  Mean   : 37.38   Mean   :2012-10-31   Mean   :1177.5  
+##  3rd Qu.: 12.00   3rd Qu.:2012-11-15   3rd Qu.:1766.2  
+##  Max.   :806.00   Max.   :2012-11-30   Max.   :2355.0  
+##  NA&#39;s   :2304
+</code></pre>
+
+<pre><code class="r">activity2&lt;-data.frame(activity)
+activity2$steps&lt;-with(activity2,ave(steps,interval,FUN = function(x) replace(x,is.na(x), mean(x,na.rm=T))))
+DT&lt;-data.table(activity2, key=&quot;date&quot;)
+DT2&lt;-DT[,c(&quot;Mean&quot;,&quot;Median&quot;):= list(mean(steps[steps!=0]), median(steps[steps!=0])), by=list(date)]
+DT2&lt;-DT[,list(Mean=mean(steps[steps!=0]), Median=median(steps[steps!=0])), by=list(date)]
+library(kableExtra)
+kable(DT2, align = &quot;c&quot;) %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;,&quot;hover&quot;,&quot;condensed&quot;), full_width = F) %&gt;%
+    column_spec(1, width = &quot;8em&quot;, border_left = T, border_right = T) %&gt;%
+    column_spec(2, width = &quot;12em&quot;, border_right = T) %&gt;%
+    column_spec(3, width= &quot;8em&quot;, border_right = T)
+</code></pre>
+
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;"> date </th>
+   <th style="text-align:center;"> Mean </th>
+   <th style="text-align:center;"> Median </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-01 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-02 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 63.00000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 63.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-03 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 140.14815 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 61.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-04 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 121.16000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 56.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-05 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 154.58140 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 66.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-06 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 145.47170 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 67.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-07 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 101.99074 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-08 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-09 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 134.85263 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 48.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-10 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 95.19231 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 56.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-11 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 137.38667 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 35.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-12 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 156.59459 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 46.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-13 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 119.48077 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 45.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-14 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 160.61702 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 60.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-15 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 131.67532 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 54.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-16 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 157.12500 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 64.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-17 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 152.86364 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 61.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-18 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 152.36364 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-19 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 127.19355 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 74.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-20 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 125.24096 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 49.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-21 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 96.93407 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 48.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-22 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 154.71264 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-23 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 101.34091 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 56.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-24 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 104.43750 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 51.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-25 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 56.63636 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 35.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-26 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 77.02273 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 36.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-27 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 134.92000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 72.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-28 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 110.17308 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 61.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-29 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 80.93548 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 54.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-30 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 110.32584 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 40.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-10-31 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 179.23256 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 83.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-01 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-02 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 143.24324 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 55.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-03 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 117.45556 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 59.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-04 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-05 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 141.06757 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 66.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-06 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 100.40964 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 52.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-07 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 135.61053 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 58.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-08 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 61.90385 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 42.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-09 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-10 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-11 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 132.71579 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 55.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-12 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 156.01449 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 42.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-13 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 90.56790 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 57.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-14 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-15 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 20.50000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 20.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-16 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 89.19672 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 43.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-17 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 183.83333 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 65.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-18 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 162.47312 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 80.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-19 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 117.88000 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 34.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-20 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 95.14894 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 58.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-21 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 188.04412 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 55.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-22 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 177.62609 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 65.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-23 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 252.30952 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 113.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-24 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 176.56098 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 65.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-25 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 140.88095 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 84.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-26 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 128.29885 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 53.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-27 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 158.67442 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 57.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-28 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 212.14583 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 70.00000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-29 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 110.10938 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 44.50000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 8em; border-left:1px solid;border-right:1px solid;"> 2012-11-30 </td>
+   <td style="text-align:center;width: 12em; border-right:1px solid;"> 40.02301 </td>
+   <td style="text-align:center;width: 8em; border-right:1px solid;"> 37.45283 </td>
+  </tr>
+</tbody>
+</table>
+
+<p>###Part 7: Plot a histogram showing total steps taken per day after missing values have been imputed. This code is the same as above, but the plot is shown in a different color (the y-axis for the first plot has been adjusted here to match that of the second plot). When we compare the first plot (left) with missing values to the second plot (right) with the NA values imputed, we can see that the middle bar (10,000-15,000 total steps) has increased, but all other appear to remain the same. This means that all days that had previously only had NA values now have a total number of steps consistent with the middle of the normal distribution.</p>
+
+<pre><code class="r">par(mfrow=c(1,2))
+plot1&lt;-with(activity,tapply(steps,list(date), FUN = sum))
+hist(plot1, col=&quot;cyan3&quot;, ylim = c(0,35),
+     xlab=&quot;Steps&quot;, main=&quot;Total Steps Per Day \nWith NAs&quot;)
+plot2&lt;-with(activity2,tapply(steps,list(date), FUN = sum))
+hist(plot2, col=&quot;coral&quot;,
+     xlab=&quot;Steps&quot;, main=&quot;Total Steps Per Day \nNAs Imputed&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /></p>
+
+<p>###Part 8: Create a panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends. I chose to use the isWeekday() and isWeekend() functions from the &ldquo;timeDate&rdquo; package. Separate datasets were created for weekdays and weekends, then plotted as line graphs. When comparing the graphs, we can see that weekdays tend to have a higher average number of steps in early intervals, which shift toward later intervals on the weekends. This would be consistent with high levels of activity in the early morning on work/school days and sleeping in/staying up late on weekends.</p>
+
+<pre><code class="r">library(data.table)
+DT&lt;-data.table(activity2, key=&quot;interval&quot;)
+library(timeDate)
+DT5&lt;-DT[isWeekday(DT$date),]
+DT5&lt;-DT5[,c(&quot;Mean&quot;,&quot;Median&quot;):= list(mean(steps[steps!=0]), median(steps[steps!=0])), by=list(interval)]
+DT5&lt;-DT5[,list(Mean=mean(steps[steps!=0]), Median=median(steps[steps!=0])), by=list(interval)]
+DT6&lt;-DT[isWeekend(DT$date),]
+DT6&lt;-DT6[,c(&quot;Mean&quot;,&quot;Median&quot;):= list(mean(steps[steps!=0]), median(steps[steps!=0])), by=list(interval)]
+DT6&lt;-DT6[,list(Mean=mean(steps[steps!=0]), Median=median(steps[steps!=0])), by=list(interval)]
+par(mfrow=c(2,1))
+plot(DT5$Mean~DT5$interval, type=&quot;l&quot;, col= &quot;indianred&quot;,
+     ylab= &quot;Average steps&quot;, xlab= &quot;Interval&quot;, 
+     main= &quot;Average Steps Taken Per Interval - Weekdays&quot;)
+plot(DT6$Mean~DT6$interval, type=&quot;l&quot;, 
+     ylab= &quot;Average steps&quot;, xlab= &quot;Interval&quot;, col=&quot;darkblue&quot;, 
+     main= &quot;Average Steps Taken Per Interval - Weekends&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" /></p>
+
+</body>
+
+</html>
