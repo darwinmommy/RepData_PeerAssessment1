@@ -51,10 +51,14 @@ kable(DT2, align = "c") %>%
 ```
 
 
-###Part 4: Create a time series plot of the average steps taken per day. The NA values were not removed for this plot; the gaps in the line are expected.
+###Part 4: Create a time series plot of the average steps taken per day vs. the interval number. 
 ```{r,fig.pos="p",fig.width=10}
-plot(DT2$Mean~as.Date(DT2$date), type="l", 
-     ylab= "Average steps", xlab= "Date", 
+library(dplyr)
+lineplot<- activity %>%
+    group_by(interval) %>%
+    summarize(meanSteps=mean(steps, na.rm=T))
+plot(lineplot, type="l",
+     ylab= "Average steps", xlab= "Interval", 
      main= "Time Series of Average Steps Taken Per Day")
 ```
 
@@ -119,7 +123,7 @@ par(mfrow=c(2,1))
 plot(DT5$Mean~DT5$interval, type="l", col= "indianred",
      ylab= "Average steps", xlab= "Interval", 
      main= "Average Steps Taken Per Interval - Weekdays")
-plot(DT6$Mean~DT6$interval, type="l", 
+plot(DT6$Mean~DT6$interval, type="l", ylim=c(0,350),
      ylab= "Average steps", xlab= "Interval", col="darkblue", 
      main= "Average Steps Taken Per Interval - Weekends")
 ```
